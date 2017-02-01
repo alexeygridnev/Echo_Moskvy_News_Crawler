@@ -15,7 +15,7 @@ def getnews(url):
 
 def dates():
     d1 = date(2016,1,1) #you can change the starting date if needed
-    d2 = date(2016,10,18) ##you can change the end date if needed
+    d2 = date(2016,10,18) #you can change the end date if needed
     diff = d2 - d1
     datelist=[]
     for i in range(diff.days+1):
