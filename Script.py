@@ -20,20 +20,20 @@ def dates():
     datelist=[]
     for i in range(diff.days+1):
         datelist.append((d1+td(days=i)).isoformat())
-    for j in range(len(datelist)):
-        datelist[j]=datelist[j].replace('-', '/')
+    for date in datelist:
+        date=date.replace('-', '/')
     return datelist
         
 datelist=dates()
 
-for k in range(len(datelist)):
-    file=open(datelist[k]+'.txt', "w")
+for date in datelist:
+    file=open(date+'.txt', "w")
     try:
         newslist=getnews('http://echo.msk.ru/news/'+datelist[k]+'.html')
-        datelist[k]=datelist[k].replace('/', '-')
+        date=date.replace('/', '-')
         for n in range(1, len(newslist)):
             file.write(newslist[n].text+'[newsbreak] \n')
-        print(datelist[k]+' Done...')
+        print(date+' Done...')
         file.close()
     except Exception:
         file.close()
